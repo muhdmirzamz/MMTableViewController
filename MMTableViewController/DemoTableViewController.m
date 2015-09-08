@@ -10,23 +10,23 @@
 
 @implementation DemoTableViewController
 
-/*
-// or you can just call this method from this class to set the properties
-- (void)viewDidLoad {
-	self.cellIdentifier = @"cell";
-	self.tableItems = [NSArray arrayWithObjects:@"Hello", @"Bye", nil];
-}
-*/
-
 - (id)initWithStyle:(UITableViewStyle)style {
 	self = [super initWithStyle:style];
 	
 	if (self) {
-		self.cellIdentifier = @"cell";
 		self.tableItems = [NSArray arrayWithObjects:@"Hello", @"Bye", nil];
 	}
 	
 	return self;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+	
+	cell.textLabel.text = [self.tableItems objectAtIndex:indexPath.row];
+	
+	return cell;
 }
 
 @end

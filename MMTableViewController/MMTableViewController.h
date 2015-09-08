@@ -11,12 +11,8 @@
 @interface MMTableViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property NSArray *tableItems;
-@property NSString *cellIdentifier;
 
-// use this with an instance of the subclass in AppDelegate class
-- (id)initWithCellSettings: (NSString*)cell AndTableItems: (NSArray*)items;
-
-// subclass these
+// override these
 - (id)initWithStyle:(UITableViewStyle)style;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 

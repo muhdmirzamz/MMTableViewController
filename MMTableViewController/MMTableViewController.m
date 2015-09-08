@@ -13,24 +13,13 @@
 	NSIndexPath *prevIndexPath;
 }
 
-@synthesize tableItems, cellIdentifier;
+@synthesize tableItems;
 
 - (id)initWithStyle:(UITableViewStyle)style {
 	self = [super initWithStyle:style];
 	
 	if (self) {
-		// custom init for properties cell identifier and table items
-	}
-	
-	return self;
-}
-
-- (id)initWithCellSettings: (NSString*)cell AndTableItems: (NSArray*)items {
-	self = [super initWithStyle:UITableViewStylePlain];
-	
-	if (self) {
-		self.cellIdentifier = cell;
-		self.tableItems = items;
+		// custom init for table items
 	}
 	
 	return self;
@@ -45,15 +34,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
+	// override
 	
-	if (cell == nil) {
-		cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:self.cellIdentifier];
-	}
+	// remember to register your cell beforehand
+	// eg: [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
 	
-	cell.textLabel.text = [self.tableItems objectAtIndex:indexPath.row];
-	
-	return cell;
+	return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

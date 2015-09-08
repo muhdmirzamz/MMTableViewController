@@ -25,16 +25,6 @@
 	self.window.rootViewController = nvc;
 	[self.window makeKeyAndVisible];
 	
-	/*
-	// you can totally leave an empty subclass and implement this, it works right out the box
-	self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
-	DemoTableViewController *d = [[DemoTableViewController alloc]initWithCellSettings:@"cell" AndTableItems:[NSArray arrayWithObjects:@"helo", @"BYe", nil]];
-	UINavigationController *nvc = [[UINavigationController alloc]initWithRootViewController:d];
-	
-	self.window.rootViewController = nvc;
-	[self.window makeKeyAndVisible];
-	*/
-	
 	return YES;
 }
 
